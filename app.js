@@ -44,8 +44,7 @@ function verifyToken(req, res, next) {
 }
    
 app.post("/api/signup", function (req, res) {
-  res.header("Acess-Control-Allow-Orgin","*")
-  res.header('Acess-Control-Allow-Methods: GET, POST, PATCH, PUT,')
+ 
   const User = req.body.user;
   console.log(User);
   var usr=Userdata(User);  
@@ -56,7 +55,7 @@ app.post("/api/signup", function (req, res) {
 
 
 app.post("/api/login", (req, res) => {
- 
+  
   let username = req.body.username;
   let password = req.body.password;
 
@@ -104,8 +103,7 @@ app.post("/api/login", (req, res) => {
 
 
 app.get("/api/books",function(req,res){
-    res.header("Access-Control-Allow-Origin","*")
-    res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTIONS");
+
     
     Bookdata.find()
                 .then(function(books){
@@ -115,8 +113,7 @@ app.get("/api/books",function(req,res){
 
 
 app.post("/api/addbook",function(req,res){
-    res.header("Access-Control-Allow-Origin","*")
-    res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTIONS");
+  
     
    
     var book = {       
@@ -130,8 +127,7 @@ app.post("/api/addbook",function(req,res){
 });
 
   app.put("/api/book/update",(req,res)=>{
-    res.header("Access-Control-Allow-Origin","*")
-    res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTIONS");
+    
 //     var updatedData={
 //       title:req.body.title,
 //       author:req.body.author,
@@ -158,6 +154,7 @@ app.post("/api/addbook",function(req,res){
 
    })
    app.delete("/api/book/remove/:id",(req,res)=>{
+    
    
     // id = req.params.id;
     book =  Bookdata.findById(req.params.id)
@@ -170,8 +167,7 @@ app.post("/api/addbook",function(req,res){
   }) 
   
   app.get("/api/authors",function(req,res){
-    res.header("Access-Control-Allow-Origin","*")
-    res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTIONS");
+   
     
     Authordata.find()
                 .then(function(authors){
@@ -179,8 +175,7 @@ app.post("/api/addbook",function(req,res){
                 });
 });
  app.post("/api/addauthor",function(req,res){
-    res.header("Access-Control-Allow-Origin","*")
-    res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTIONS");
+   
     
    
     var author = {       
@@ -193,6 +188,7 @@ app.post("/api/addbook",function(req,res){
    author.save();
 });
 app.get("/api/book/:id",  (req, res) => {
+ 
   
   const id = req.params.id;
     Bookdata.findOne({"_id":id})
@@ -201,7 +197,8 @@ app.get("/api/book/:id",  (req, res) => {
     });
 })
 app.get("/api/author/:id",  (req, res) => {
-  
+
+   
   const id = req.params.id;
     Authordata.findOne({"_id":id})
     .then((author)=>{
@@ -209,8 +206,7 @@ app.get("/api/author/:id",  (req, res) => {
     });
 })
 app.put("/api/author/updates",(req,res)=>{
-  res.header("Access-Control-Allow-Origin","*")
-  res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTIONS");
+  
 //     var updatedData={
 //       title:req.body.title,
 //       author:req.body.author,

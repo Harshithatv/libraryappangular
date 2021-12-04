@@ -246,6 +246,4 @@ app.put('/api/author/updates',(req,res)=>{
       res.send();
   })
 }) 
-app.listen(3000, function(){
-    console.log('listening to port 3000');
-});
+app.listen(port,()=>{console.log("Server Ready at" + port)});

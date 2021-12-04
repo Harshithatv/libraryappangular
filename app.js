@@ -21,10 +21,7 @@ app.use(session({      //session creation
 }));
 const path = require('path');
 app.use(express.static('./dist/frontend'));
-app.get('/*', function(req, res) {
-  res.sendFile(path.join(__dirname + '/dist/frontend/index.html'));
- });
- 
+
 
 
 function verifyToken(req, res, next) {
@@ -243,4 +240,8 @@ app.put("/api/author/updates",(req,res)=>{
       res.send();
   })
 }) 
+app.get('/*', function(req, res) {
+  res.sendFile(path.join(__dirname + '/dist/frontend/index.html'));
+ });
+ 
 app.listen(port,()=>{console.log("Server Ready at" + port)});
